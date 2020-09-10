@@ -5,6 +5,8 @@ import { typeOrmConfig } from './tasks/config/typeorm.config';
 import Task from './entity/task.entity';
 import { Connection } from 'typeorm';
 import { TaskRepository } from './tasks/task.repository';
+import { AuthModule } from './auth/auth.module';
+import { User } from './auth/user.entity';
 
 
 @Module({
@@ -17,9 +19,9 @@ import { TaskRepository } from './tasks/task.repository';
      username: 'root',
      password: '',
      database: 'test',
-     entities: [Task],
+     entities: [Task, User],
      synchronize: true,
-   }),TasksModule, TaskRepository
+   }),TasksModule, TaskRepository, AuthModule
 
 
   ],
